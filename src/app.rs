@@ -86,7 +86,6 @@ impl ConfigNagaGuiApp {
         if let Some(path) = rfd::FileDialog::new()
             .add_filter("TOML Config", &["toml"])
             .set_directory(&self.config_dir)
-            .set_file_name("config.toml")
             .save_file()
         {
             let content = self.generate_toml_config();

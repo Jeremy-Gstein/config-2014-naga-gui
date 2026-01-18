@@ -7,6 +7,12 @@ edition = "2021"
 name = "config-2014-naga-gui"
 path = "src/main.rs"
 
+# Restrict to Linux only
+[target.'cfg(target_os = "linux")']
+
+[package.metadata]
+platforms = ["linux"]
+
 [package.metadata.appimage]
 auto_link = true
 auto_link_exclude_list = ["libc.so*", "libdl.so*", "libpthread.so*"]
@@ -24,7 +30,7 @@ eframe = "0.29"
 egui = "0.29"
 ksni = "0.2" # System tray for Linux
 dirs = "5.0" # Directory paths
-rfd = "0.14" # File dialogs 
+rfd = "0.1" # File dialogs 
 toml = "0.9" # toml parser
 serde = { version = "1.0", features = ["derive"] }
 # lib-config_2014_naga 

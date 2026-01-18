@@ -1,0 +1,19 @@
+<svg width="256" height="256" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <title>Layer 1</title>
+  <circle cx="128" cy="128" r="120" fill="#584075" id="svg_1"/>
+  <path d="m127,60q-28,0 -43,20l0,80q0,30 25,40l36,0q25,-10 25,-40l0,-80q-15,-20 -43,-20z" fill="#000000" id="svg_2"/>
+  <rect x="120" y="75" width="16" height="30" rx="8" fill="#2bc900" id="svg_3"/>
+  <g fill="#34495e" opacity="0.8" id="svg_4">
+   <rect x="87" y="107" width="15" height="12" rx="2" id="svg_5" fill="#00ff00"/>
+   <rect x="87" y="122" width="15" height="12" rx="2" id="svg_6" fill="#00ff00"/>
+   <rect x="87" y="137" width="15" height="12" rx="2" id="svg_7" fill="#00ff00"/>
+   <rect x="87" y="152" width="15" height="12" rx="2" id="svg_8" fill="#00ff00"/>
+  </g>
+  <text x="110.54039" y="227.38686" font-size="20" text-anchor="middle" fill="#19dd00" font-family="'Noto Sans Display'" font-weight="bold" id="svg_9" transform="matrix(1.44446, 0, 0, 1.92551, -32.4463, -206.124)" font-style="normal">NAGA</text>
+  <text font-style="normal" fill="#13f413" x="70.04726" y="52.09456" id="svg_11" stroke-width="0" font-size="20" font-family="'Noto Sans Display'" text-anchor="start" xml:space="preserve" font-weight="bold" transform="matrix(1.58714, 0, 0, 2.10745, -44.5855, -52.3156)">CONFIG</text>
+  <text transform="matrix(2.47921, 0, 0, 2.27585, -60.6475, -134.753)" font-weight="bold" xml:space="preserve" text-anchor="start" font-family="'Noto Sans Display'" font-size="20" id="svg_10" y="135.34853" x="33.33626" stroke-width="0" fill="#13f413">20</text>
+  <text transform="matrix(2.55608, 0, 0, 2.19946, -297.545, -130.359)" font-weight="bold" xml:space="preserve" text-anchor="start" font-family="'Noto Sans Display'" font-size="20" stroke-width="0" id="svg_13" y="137.24088" x="183.14936" fill="#13f413">14</text>
+ </g>
+
+</svg>

@@ -787,7 +787,7 @@ dependencies = [
 
 [[package]]
 name = "config-2014-naga-gui"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "config-2014-naga",
  "dirs",

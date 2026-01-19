@@ -18,7 +18,7 @@ jobs:
           fetch-depth: 0
           
       - name: Install system deps
-        run: sudo apt update && sudo apt install -y libudev-dev wget libglib2.0-dev pkg-config
+        run: sudo apt update && sudo apt install -y libudev-dev wget libglib2.0-dev libdbus-1-dev pkg-config
         
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable

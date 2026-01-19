@@ -1,6 +1,5 @@
 #[derive(Default)]
 pub struct AppState {
-    //pub window_visible: bool,
     pub remapping_enabled: bool,
 }
 

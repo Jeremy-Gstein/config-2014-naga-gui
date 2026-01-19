@@ -11,7 +11,6 @@ use state::AppState;
 
 fn main() -> Result<(), eframe::Error> {
     let app_state = Arc::new(Mutex::new(AppState {
-        //window_visible: true,
         remapping_enabled: false,
     }));
 

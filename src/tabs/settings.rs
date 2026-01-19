@@ -1,5 +1,5 @@
 use eframe::egui;
-use std::process::Command;
+//use std::process::Command;
 use crate::app::ConfigNagaGuiApp;
 
 pub fn show(app: &mut ConfigNagaGuiApp, ui: &mut egui::Ui) {
@@ -17,25 +17,25 @@ pub fn show(app: &mut ConfigNagaGuiApp, ui: &mut egui::Ui) {
         }
     });
 
-    ui.add_space(15.0);
-    ui.separator();
-    ui.add_space(10.0);
-
-    ui.label("Installation check:");
-    if ui.button("Check if config-2014-naga is installed").clicked() {
-        match Command::new("which").arg("config-2014-naga").output() {
-            Ok(output) if output.status.success() => {
-                let path = String::from_utf8_lossy(&output.stdout);
-                app.status_message =
-                    format!("✓ config-2014-naga found at: {}", path.trim());
-            }
-            _ => {
-                app.status_message =
-                    "✗ config-2014-naga not found. Install with: cargo install config-2014-naga"
-                        .to_string();
-            }
-        }
-    }
+    // ui.add_space(15.0);
+    // ui.separator();
+    // ui.add_space(10.0);
+    //
+    // ui.label("Installation check:");
+    // let config_path: &str = "~/.config/config-2014-naga/config.toml";
+    // if ui.button("Check if config-2014-naga is installed").clicked() {
+    //     match Command::new("ls").arg(config_path).output() {
+    //         Ok(output) if output.status.success() => {
+    //             let path = String::from_utf8_lossy(&output.stdout);
+    //             app.status_message =
+    //                 format!("✓ found: {}", path);
+    //         }
+    //         _ => {
+    //             app.status_message =
+    //                 format!("✗ {} not found. Install with: cargo install config-2014-naga", config_path).to_string();
+    //         }
+    //     }
+    // }
 
     ui.add_space(15.0);
     ui.separator();

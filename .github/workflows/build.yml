@@ -1,0 +1,93 @@
+name: build
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
+      - name: Install system deps
+        run: sudo apt update && sudo apt install -y libudev-dev wget
+        
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+          
+      - name: Cache cargo
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+          
+      - name: Build
+        run: cargo build
+        
+      - name: Check for release
+        id: release_check
+        run: |
+          MSG=$(git log -1 --pretty=%B)
+          echo "COMMIT_MSG=$MSG" >> $GITHUB_ENV
+          if echo "$MSG" | grep -q "\[release\]"; then
+            echo "RELEASE=true" >> $GITHUB_ENV
+            
+            # Determine bump type
+            BUMP=patch
+            if echo "$MSG" | grep -qi "^feat"; then
+              BUMP=minor
+            fi
+            if echo "$MSG" | grep -qi "BREAKING CHANGE"; then
+              BUMP=major
+            fi
+            echo "BUMP=$BUMP" >> $GITHUB_ENV
+          else
+            echo "RELEASE=false" >> $GITHUB_ENV
+          fi
+          
+      - name: Install release tools
+        if: env.RELEASE == 'true'
+        run: |
+          wget https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-$(uname -m).AppImage -O /usr/local/bin/appimagetool
+          cargo install appimage
+          
+      - name: Configure git
+        if: env.RELEASE == 'true'
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+      - name: Get new version
+        if: env.RELEASE == 'true'
+        run: |
+          VERSION=$(cargo pkgid | cut -d# -f2 | cut -d: -f2)
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          
+      - name: Build release binary
+        if: env.RELEASE == 'true'
+        run: |
+          cargo build --release
+          cargo appimage
+        
+      - name: Create GitHub Release
+        if: env.RELEASE == 'true'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: target/appimage/config-2014-naga-gui
+          tag_name: v${{ env.VERSION }}
+          generate_release_notes: true

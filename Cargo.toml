@@ -7,7 +7,7 @@ edition = "2021"
 name = "config-2014-naga-gui"
 path = "src/main.rs"
 
-# Restrict to Linux only
+# Restrict to Linux targets only
 [target.'cfg(target_os = "linux")']
 
 [package.metadata]

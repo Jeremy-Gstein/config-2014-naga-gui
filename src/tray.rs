@@ -20,9 +20,9 @@ pub fn setup_system_tray(app_state: Arc<Mutex<AppState>>) {
                 .unwrap_or(false);
 
             if active {
-                "input-gaming".into()  // System icon - green gaming controller
+                "input-gaming".into()  // System icon - gaming controller
             } else {
-                "input-mouse".into()   // System icon - gray mouse
+                "input-mouse".into()   // System icon - mouse
             }
         }
 

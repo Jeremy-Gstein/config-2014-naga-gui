@@ -223,7 +223,7 @@ impl eframe::App for ConfigNagaGuiApp {
                             );
                         } else {
                             ui.colored_label(
-                                egui::Color32::GRAY,
+                                egui::Color32::YELLOW,
                                 "● INACTIVE",
                             );
                         }

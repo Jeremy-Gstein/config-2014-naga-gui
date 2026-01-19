@@ -74,7 +74,8 @@ jobs:
         if: env.RELEASE == 'true'
         run: |
           wget https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-$(uname -m).AppImage -O /usr/local/bin/appimagetool
-          cargo install appimage
+          chmod +x /usr/local/bin/appimagetool
+          cargo install cargo-appimage
           
       - name: Configure git
         if: env.RELEASE == 'true'

@@ -75,13 +75,25 @@ jobs:
         run: |
           wget https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-$(uname -m).AppImage -O /usr/local/bin/appimagetool
           chmod +x /usr/local/bin/appimagetool
-          cargo install cargo-appimage --force
+          cargo install cargo-appimage --locked
+          cargo install cargo-release --locked
+
           
       - name: Configure git
         if: env.RELEASE == 'true'
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name:  Cargo release
+        if: env.RELEASE == 'true'
+        run: |
+          cargo release $BUMP \
+          --no-confirm \
+          --execute \
+          --no-publish \
+          --push \
+          --tag-name "v{{version}}"
           
       - name: Get new version
         if: env.RELEASE == 'true'

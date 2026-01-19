@@ -2,6 +2,9 @@
 Linux GUI client to configure side buttons 1..12 on a 2014 Razer Naga Mouse.
 
 ---
+<img width="500" height="420" alt="image" src="https://github.com/user-attachments/assets/14ff8975-9bdf-483c-81b0-24aa4f892e7d" />
+
+<sub>testest on Garuda Linux x86_64-Linux 6.18.2-zen2-1-zen</sub>
 
 ## Quickstart:
 App Image available via github releases

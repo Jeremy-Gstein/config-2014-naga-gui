@@ -1,6 +1,6 @@
 [package]
 name = "config-2014-naga-gui"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 
 [[bin]]

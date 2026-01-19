@@ -99,6 +99,6 @@ jobs:
         if: env.RELEASE == 'true'
         uses: softprops/action-gh-release@v2
         with:
-          files: target/appimage/config-2014-naga-gui
+          files: target/appimage/config-2014-naga-gui.AppImage
           tag_name: v${{ env.VERSION }}
           generate_release_notes: true

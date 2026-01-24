@@ -32,4 +32,4 @@ dirs = "5.0"    # Directory paths
 rfd = "0.1"     # File dialogs 
 toml = "0.9"    # toml parser
 serde = { version = "1.0", features = ["derive"] }
-config-2014-naga = "0.3.0" # lib-config_2014_naga 
+config-2014-naga = "0.3.1" # lib-config_2014_naga 

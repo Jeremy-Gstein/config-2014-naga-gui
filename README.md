@@ -37,3 +37,4 @@ cargo install cargo-appimage
 # build with cargo appimage
 cargo appimage
 # produces .AppImage in target/appimage/
+```

@@ -774,9 +774,9 @@ dependencies = [
 
 [[package]]
 name = "config-2014-naga"
-version = "0.3.0"
+version = "0.3.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8c3d593abe34fe0802d978715fbeff3e9b6e0f63b6410f0518aa20720068a446"
+checksum = "ca466b1d24d15c94638d1c07bf62b62052f389f6cac0c4a7e7338cdc70e5c419"
 dependencies = [
  "evdev-rs",
  "libc",
